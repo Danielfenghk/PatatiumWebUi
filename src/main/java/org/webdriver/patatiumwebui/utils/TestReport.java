@@ -1,31 +1,18 @@
 package org.webdriver.patatiumwebui.utils;
-import java.io.File;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.webdriver.patatiumwebui.config.Config;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.testng.IReporter;
-import org.testng.IResultMap;
-import org.testng.ISuite;
-import org.testng.ISuiteResult;
-import org.testng.ITestContext;
-import org.testng.ITestResult;
-import org.testng.TestNG;
+import org.testng.*;
 import org.testng.xml.XmlSuite;
+import org.webdriver.patatiumwebui.config.Config;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 /**
  * 报表生成器
  * @author Administrator
@@ -60,6 +47,7 @@ public class TestReport implements IReporter{
 			e.printStackTrace();
 		}
 		this.sort(list);
+		System.out.println(outputDirectory+"123455");
 		this.outputResult(list, outputDirectory+"/report.html");
 
 
@@ -309,6 +297,7 @@ public class TestReport implements IReporter{
 				}
 				float t=fullResults.get(i).getEndMillis()-fullResults.get(i).getStartMillis();
 				String testMethodFullName=fullResults.get(i).getTestClass().getName()+"."+fullResults.get(i).getMethod().getMethodName();
+
 				if (!fullResults.get(i).getMethod().getDescription().isEmpty())
 				{
 					if (fullResults.get(i).getParameters().length>0)
@@ -634,11 +623,9 @@ public class TestReport implements IReporter{
 			sb2.append("</div>\n");
 			sb2.append("</div>\n");
 			sb2.append("<div id=\"report_total\">\n");
-			sb2.append("<div>(<span style=\"color:green\">绿色字体pass用例</span><span style=\"color:red\">红色字体failed用例</span><span style=\"color:gray\">灰色字体skip用例</span>)<span style=\" margin-left:20px\"><a href=\" "
+			sb2.append("<div>(<span style=\"color:green\">绿色字体pass用例</span><span style=\"color:red\">红色字体failed用例</span><span style=\"color:gray\">灰色字体skip用例</span>)<span style=\" margin-left:20px\"><a href=\""
 					+reportUrl
-					+ "\">点击查看完整报表</a></span><span style=\"margin-left:14px\"><a href=\""
-					+logUrl
-					+ "\">点击查看日志</a></span></div>\n");
+					+ "\">点击查看完整报表:file:///F:/github/PatatiumWebUi/test-output/report.html</a></span><span style=\"margin-left:15px\">");
 			sb2.append("<table width=\"100%\" style=\"width:100%;text-align:left;border-collapse:collapse;border-spacing:0;font-size:12px;\" >\n");
 			sb2.append("<tr>\n"
 					+ "<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"18%\"><div align=\"center\">用例总数</div></td>\n");
@@ -851,7 +838,6 @@ public class TestReport implements IReporter{
 			sb2.append("</div>\n"
 					+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2014 Webdriver中文社区.Inc</div>");
 			sb2.append("</body>\n</html>\n");
-			System.out.println("收件人地址："+Recipients);
 			SendMail sendMail=new SendMail();
 			String smtpUserName="";
 			String smtpPassWord="";
@@ -937,7 +923,7 @@ public class TestReport implements IReporter{
 		return sb.toString();
 
 	}
-	private String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
+	public String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
 	{
 		File file = new File(path);
 		if (!file.exists()) {

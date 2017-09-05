@@ -3,6 +3,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.dom4j.DocumentException;
 import org.testng.annotations.DataProvider;
+import org.webdriver.patatiumwebui.action.BranchLoginAction;
 import org.webdriver.patatiumwebui.action.CommonAction;
 
 import org.openqa.selenium.Alert;
@@ -10,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.webdriver.patatiumwebui.action.LoginAction;
+import org.webdriver.patatiumwebui.pageObject.BranchLoginPage;
 import org.webdriver.patatiumwebui.pageObject.HomePage;
 import org.webdriver.patatiumwebui.pageObject.LoginPage;
 import org.webdriver.patatiumwebui.utils.*;
@@ -24,8 +26,9 @@ import org.testng.annotations.Test;
 import com.thoughtworks.selenium.webdriven.commands.Click;
 
 public class LoginTest extends TestBaseCase {
+
 	ElementAction action=new ElementAction();
-	@Test(description="登录成功测试")
+	@Test(description="登录成功测试",enabled = false)
 	@Parameters({"BaseUrl"})//读取testng.xml参数
 	public void login(String BaseUrl) throws IOException
 	{
@@ -38,6 +41,14 @@ public class LoginTest extends TestBaseCase {
 		//设置用例断言，判断用例是否失败
 		Assertion.VerityError();
 	}
+	@Test(description = "登陆测试")
+	public void branchlogin() throws Exception{
+		BranchLoginAction branchLoginAction=new BranchLoginAction();
+		branchLoginAction.login("123","555");
+
+
+	}
+
 	//数据驱动案例--start
 	@DataProvider(name="longinData")
 	public Object[][] loginData()
@@ -47,7 +58,7 @@ public class LoginTest extends TestBaseCase {
 		//读取第一个sheet，第2行到第5行-第2到第4列之间的数据
 		return ExcelReadUtil.case_data_excel(0, 1, 4, 1, 3,filePath);
 	}
-	@Test(description="登录失败用例",dataProvider = "longinData")
+	@Test(description="登录失败用例",dataProvider = "longinData",enabled = false)
 	public void loginFail (String userName,String password,String message) throws IOException, DocumentException {
 		//代替testng参数化的方法
 		String BaseUrl= XmlReadUtil.getTestngParametersValue("testng.xml","BaseUrl");

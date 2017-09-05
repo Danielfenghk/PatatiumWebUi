@@ -61,6 +61,24 @@
             <version>1.4.01</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jodd/jodd-http -->
+        <!-- cucumber 框架的包的引入-->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <scope>test</scope>
+            <version>1.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-jvm</artifactId>
+            <version>1.2.4</version>
+            <type>pom</type>
+        </dependency>
         <dependency>
             <groupId>org.jodd</groupId>
             <artifactId>jodd-http</artifactId>

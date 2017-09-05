@@ -6,17 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,7 +23,7 @@ public class ElementAction extends TestBaseCase{
 
 	private Log log=new Log(this.getClass());
 	public static ArrayList<Exception> noSuchElementExceptions=new ArrayList<Exception>();
-	private String formatDate(Date date)
+	public String formatDate(Date date)
 	{
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HHmmssSSS");
 		return formatter.format(date).toString();
@@ -102,7 +92,7 @@ public class ElementAction extends TestBaseCase{
 			Assertion.assertInfolList.add("failed,找不到元素：["+locator.getBy()+":"+locator.getElement()+"等待:"+locator.getWaitSec());
 			noSuchElementExceptions.add(e);
 			Assertion.messageList.add("找不到所需页面元素["+locator.getElement()+"]:failed");
-			ScreenShot screenShot=new ScreenShot(driver);
+				ScreenShot screenShot=new ScreenShot(driver);
 			//设置截图名字
 			Date nowDate=new Date();
 			screenShot.setscreenName(this.formatDate(nowDate));
@@ -966,6 +956,25 @@ public class ElementAction extends TestBaseCase{
 		WebDriverWait webDriverWait=new WebDriverWait(driver, 30);
 		webDriverWait.until(ExpectedConditions.visibilityOf(action.findElement(locator))).isDisplayed();
 
+	}
+	/**
+	 * 键盘相关操作
+	 */
+	public void typeKeyWord(Locator locator, Keys keys){
+		ElementAction action=new ElementAction();
+		WebElement webElement=action.findElement(locator);
+		webElement.sendKeys(keys);
+	}
+	/**
+	 * 截图操作
+	 */
+	public void takeShot(){
+		ScreenShot screenShot=new ScreenShot(driver);
+		//设置截图名字
+		Date nowDate=new Date();
+		screenShot.setscreenName(this.formatDate(nowDate));
+		screenShot.takeScreenshot();
+		Assertion.messageList.add(screenshotMessage(this.formatDate(nowDate)));
 	}
 
 }

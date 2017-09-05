@@ -1,6 +1,6 @@
 package org.webdriver.patatiumwebui.utils;
-import org.eclipse.jetty.util.preventers.DriverManagerLeakPreventer;
-import org.webdriver.patatiumwebui.utils.Log;
+
+import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,22 +10,22 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.testng.annotations.Parameters;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
+public class TestBaseCase extends AbstractTestNGCucumberTests {
 
-public class TestBaseCase {
 	public static WebDriver driver;
 	//方法描述
 	public static String description;
 	public Log log=new Log(this.getClass().getSuperclass());
 	@BeforeTest
-	@Parameters({"driver","nodeURL"})
-	public void  setup( String driver,String nodeURL) throws MalformedURLException {
+	@Parameters({"driver","nodeURL","BaseUrl"})
+	public void  setup( String driver,String nodeURL,String BaseUrl) throws MalformedURLException {
 		log.info("------------------开始执行测试---------------");
 		if(nodeURL.equals("")||nodeURL.isEmpty())
 		{
@@ -36,7 +36,7 @@ public class TestBaseCase {
 				log.error("没有成功浏览器环境配置错误");
 				e.printStackTrace();
 			}
-			System.out.println(nodeURL);
+			System.out.println("nodeUrl"+nodeURL);
 			this.driver.manage().window().maximize();
 		}
 		else {

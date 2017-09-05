@@ -14,9 +14,48 @@
         Value:元素定位信息，如果是id,name,class，linktext直接把网页元素对应的这些属性值写上即可，如果是xpath定位方式，
         需要填写正确的xpath语法格式。
         Desc:元素的描述，元素的中文描述信息-->
-		<locator type="xpath" timeout="3" value="//a[text()='账户登录']"  desc="账户登录">账户登录</locator>
-		<locator type="xpath" timeout="3" value="//input[@id='loginname']"  desc="用户名">用户名输入框</locator>
-		<locator type="id" timeout="3" value="nloginpwd"  desc="密码">密码输入框</locator>
-		<locator type="id" timeout="3" value="loginsubmit"  desc="登录">登录按钮</locator>
-	</page>
+        <locator type="xpath" timeout="3" value="//a[text()='账户登录']" desc="账户登录">账户登录</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='loginname']" desc="用户名">用户名输入框</locator>
+        <locator type="id" timeout="3" value="nloginpwd" desc="密码">密码输入框</locator>
+        <locator type="id" timeout="3" value="loginsubmit" desc="登录">登录按钮</locator>
+    </page>
+    <page pagename="org.webdriver.patatiumwebui.pageObject.BranchLoginPage" value="" desc="电动车登录页面">
+        <!--管理一个页面的元素（webelement：input,select,textare,a,li等标签），一个page包含多个locator对象
+        Type：定位方式，包含id,name,class,linktext,xpath,css等，定位元素的时候灵活使用，一般可以统一用xpath
+        代替id,name,class，linktext的定位方式。
+        Timeout：元素加载时间，有些页面元素，可能要等待一段时间才能加载过来，为了查找元素的稳定性，需加等待时间。
+        Value:元素定位信息，如果是id,name,class，linktext直接把网页元素对应的这些属性值写上即可，如果是xpath定位方式，
+        需要填写正确的xpath语法格式。
+        Desc:元素的描述，元素的中文描述信息-->
+        <locator type="xpath" timeout="3" value="//input[@id='account']" desc="账户登录">in_username</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='password']" desc="用户名">in_password</locator>
+        <locator type="xpath" timeout="3" value="//button[@id='loginBut']" desc="密码">btn_submit</locator>
+    </page>
+
+    <page pagename="org.webdriver.patatiumwebui.pageObject.EquimentPage" value="" desc="设备维护页面">
+        <!--管理一个页面的元素（webelement：input,select,textare,a,li等标签），一个page包含多个locator对象
+        Type：定位方式，包含id,name,class,linktext,xpath,css等，定位元素的时候灵活使用，一般可以统一用xpath
+        代替id,name,class，linktext的定位方式。
+        Timeout：元素加载时间，有些页面元素，可能要等待一段时间才能加载过来，为了查找元素的稳定性，需加等待时间。
+        Value:元素定位信息，如果是id,name,class，linktext直接把网页元素对应的这些属性值写上即可，如果是xpath定位方式，
+        需要填写正确的xpath语法格式。
+        Desc:元素的描述，元素的中文描述信息-->
+        <locator type="xpath" timeout="3" value="//span[contains(.,' 设备管理 ')]" desc="设备管理按钮">btn_sbgl</locator>
+        <locator type="xpath" timeout="3" value="//*[contains(text(),'设备维护')]" desc="设备维护按钮">btn_sbwh</locator>
+        <locator type="xpath" timeout="3" value="//button[@id='equipment_add']" desc="设备添加按钮">btn_add</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='orderBatch']" desc="生产批号 ">in_scph</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='serialNumber']" desc="设备ID">in_id</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='equipmentModel']" desc="设备型号 ">in_sbxh</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='equipmentPwd']" desc="设备密码">in_sbmm</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='simCode']" desc="物联网卡号码">in_wlwk</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='firmwareVersion']" desc="固件版本 ">in_gjbb</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='shipmentDate']" desc="出货日期 ">in_date</locator>
+        <locator type="xpath" timeout="3" value="//select[@id='manufacturerId']" desc="所属厂商 ">in_sscs</locator>
+        <locator type="xpath" timeout="3" value="//button[@id='submit']" desc="提交按钮">btn_submit</locator>
+        <locator type="xpath" timeout="3" value="//option[@value='EA80B64AFA0349928A1E1608980D4131']" desc="金开电子选项">select_jkdz</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='keyword']" desc="搜索框">in_search</locator>
+
+
+
+    </page>
 </map>
