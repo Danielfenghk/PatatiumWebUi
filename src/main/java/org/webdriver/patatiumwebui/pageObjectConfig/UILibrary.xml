@@ -54,8 +54,26 @@
         <locator type="xpath" timeout="3" value="//button[@id='submit']" desc="提交按钮">btn_submit</locator>
         <locator type="xpath" timeout="3" value="//option[@value='EA80B64AFA0349928A1E1608980D4131']" desc="金开电子选项">select_jkdz</locator>
         <locator type="xpath" timeout="3" value="//input[@id='keyword']" desc="搜索框">in_search</locator>
-
-
+    </page>
+    <page pagename="org.webdriver.patatiumwebui.pageObject.PolicePage" value="" desc="公安登记页面">
+        <locator type="xpath" timeout="3" value="//span[contains(.,' 上牌管理 ')]" desc="上牌管理按钮">btn_spgl</locator>
+        <locator type="xpath" timeout="3" value="//a[contains(.,'非机动车登记')]" desc="非机动车登记按钮">btn_fjdc</locator>
+        <locator type="xpath" timeout="3" value="//select[@id='ownerType']" desc="车主类型选项">select_czlx</locator>
+        <locator type="xpath" timeout="3" value="//select[@id='certificatesType']" desc="证件类型选项">select_zjlx</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='houseAddress']" desc="户籍地址">in_hjdz</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='name']" desc="姓名/单位">in_xm</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='certificatesNo']" desc="证件号码">in_zjhm</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='contactWay']" desc="联系电话">in_lxdh</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='address']" desc="现居住地址">in_xjzd</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='groupPhoto']" desc="身份证、车牌、设备合影">in_sfz</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='vehicleNo']" desc="车牌号码">in_cphm</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='number']" desc="车架编号">in_cjbh</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='motorNo']" desc="电机编号">in_djbh</locator>
+        <locator type="xpath" timeout="3" value="//input[@id='serialNumber']" desc="设备ID">in_sbid</locator>
+        <locator type="xpath" timeout="3" value="//input[@name='dataPhoto']" desc="购车证明">in_gczm</locator>
+        <locator type="xpath" timeout="3" value="//input[@name='vehiclePhoto']" desc="车辆照片">in_clzp</locator>
+        <locator type="xpath" timeout="3" value="//button[@id='submit']" desc="车辆照片">btn_tj
+        </locator>
 
     </page>
 </map>

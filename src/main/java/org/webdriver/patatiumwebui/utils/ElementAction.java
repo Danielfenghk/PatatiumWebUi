@@ -536,6 +536,7 @@ public class ElementAction extends TestBaseCase{
 	{
 		try {
 			WebElement webElement=findElement(locator);
+			webElement.clear();
 			webElement.sendKeys(value);
 			log.info("input输入："+locator.getLocalorName()+"["+"By."+locator.getBy()+":"+locator.getElement()+"value:"+value+"]");
 		} catch (NoSuchElementException e) {

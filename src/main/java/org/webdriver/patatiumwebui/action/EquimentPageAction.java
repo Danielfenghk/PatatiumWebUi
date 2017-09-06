@@ -5,15 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.webdriver.patatiumwebui.pageObject.EquimentPage;
 import org.webdriver.patatiumwebui.utils.BaseAction;
 import org.webdriver.patatiumwebui.utils.ElementAction;
+import org.webdriver.patatiumwebui.utils.TestBaseCase;
 
 /**
  * Created by wu on 2017/8/30.
  */
-public class EquimentPageAction extends BaseAction {
+public class EquimentPageAction extends TestBaseCase{
     EquimentPage equimentPage=new EquimentPage();
     ElementAction action=new ElementAction();
     public void add(String id)throws Exception{
         action.click(equimentPage.btn_sbgl());
+        action.sleep(2);
         action.click(equimentPage.btn_sbwh());
         action.click(equimentPage.btn_add());
         action.type(equimentPage.in_scph(),"20170831");
@@ -24,7 +26,7 @@ public class EquimentPageAction extends BaseAction {
         action.type(equimentPage.in_gjbb(),"v1.0.0");
         action.type(equimentPage.in_date(),"2017-08-30");
         action.typeKeyWord(equimentPage.in_date(),Keys.ENTER);
-        action.selectByValue(equimentPage.in_sscs(),"EA80B64AFA0349928A1E1608980D4131");
+        action.selectByValue(equimentPage.in_sscs(),"6D4CC5E5EFF24C8F9959321CD3A6A36A");
         action.click(equimentPage.btn_submit());
 
     }

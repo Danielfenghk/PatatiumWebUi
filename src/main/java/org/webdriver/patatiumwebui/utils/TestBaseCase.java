@@ -55,8 +55,8 @@ public class TestBaseCase extends AbstractTestNGCucumberTests {
 
 	@AfterTest
 	public void tearDown() {
-		this.driver.close();
-		this.driver.quit();
+		//this.driver.close();
+		//this.driver.quit();
 		log.info("-------------结束测试，并关闭退出浏览器-------------");
 	}
 
