@@ -1,6 +1,7 @@
 package features;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.webdriver.patatiumwebui.action.PolicePageAction;
 
 /**
@@ -13,4 +14,9 @@ public class PoliceRegisterStep {
         policePageAction.addCarInformation(id,photoNumber,cjbh,djbh);
     }
 
+    @Then("^进入上牌车辆管理界面$")
+    public void carManageStep() throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+       policePageAction.carManage();
+    }
 }

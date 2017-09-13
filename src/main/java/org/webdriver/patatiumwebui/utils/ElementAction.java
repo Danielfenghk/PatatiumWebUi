@@ -536,7 +536,7 @@ public class ElementAction extends TestBaseCase{
 	{
 		try {
 			WebElement webElement=findElement(locator);
-			webElement.clear();
+
 			webElement.sendKeys(value);
 			log.info("input输入："+locator.getLocalorName()+"["+"By."+locator.getBy()+":"+locator.getElement()+"value:"+value+"]");
 		} catch (NoSuchElementException e) {
@@ -969,13 +969,11 @@ public class ElementAction extends TestBaseCase{
 	/**
 	 * 截图操作
 	 */
-	public void takeShot(){
-		ScreenShot screenShot=new ScreenShot(driver);
-		//设置截图名字
-		Date nowDate=new Date();
-		screenShot.setscreenName(this.formatDate(nowDate));
-		screenShot.takeScreenshot();
-		Assertion.messageList.add(screenshotMessage(this.formatDate(nowDate)));
+	public void takeShot() throws Exception{
+		String d=formatDate(new Date())+".jpg";
+		sleep(2);
+		Snapshot("E:\\photo\\",d);
 	}
+
 
 }

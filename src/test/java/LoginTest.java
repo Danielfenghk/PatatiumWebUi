@@ -44,7 +44,7 @@ public class LoginTest extends TestBaseCase {
 	@Test(description = "登陆测试")
 	public void branchlogin() throws Exception{
 		BranchLoginAction branchLoginAction=new BranchLoginAction();
-		branchLoginAction.login("123","555");
+		branchLoginAction.login("123","555","222");
 
 
 	}

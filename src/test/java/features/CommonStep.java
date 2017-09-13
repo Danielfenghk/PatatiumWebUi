@@ -15,7 +15,7 @@ public class CommonStep {
     @Then("^进行截图$")
     public void takeShot() throws Exception{
         String d=action.formatDate(new Date())+".jpg";
-
+        action.sleep(2);
         action.Snapshot("E:\\photo\\",d);
     }
 

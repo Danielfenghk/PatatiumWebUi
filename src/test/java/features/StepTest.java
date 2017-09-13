@@ -18,8 +18,7 @@ public class StepTest {
 
     @Given("^打开网页:(\\S*),输入账号:(\\S*),输入密码:(\\S*)$")
     public void login(String url,String username,String password) throws Exception{
-        branchLoginAction.open(url);
-        branchLoginAction.login(username,password);
+        branchLoginAction.login(username,password,url);
     }
     @Then("^find element homepage$")
     public void assertStep(){

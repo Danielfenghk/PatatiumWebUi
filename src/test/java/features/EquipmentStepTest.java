@@ -1,5 +1,6 @@
 package features;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,4 +24,9 @@ public class EquipmentStepTest {
         equimentPageAction.findEquipmentByID(id);
     }
 
+    @Given("^添加后装车辆设备号:(\\S*)$")
+    public void add(String id) throws Exception {
+        // Write code here that turns the phrase above into concrete actions
+        equimentPageAction.addAter(id);
+    }
 }
